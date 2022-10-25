@@ -1,0 +1,66 @@
+#atus--upcoming-releases-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.atus--category {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.atus--name {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-overflow: ellipsis;
+}
+
+.atus--download-status {
+  padding: 0 5px;
+  white-space: nowrap;
+}
+
+.atus--size {
+  white-space: nowrap;
+}
+
+
+/* progress bar */
+.atus--progress-bar {
+  position: relative;
+  height: 10px;
+  border: 1px solid rgba(75, 75, 75, 0.5);
+  border-radius: 4px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.atus--progress-bar--progress {
+  height: 100%;
+  background-color: #4CAF50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.5s ease;
+  will-change: width;
+}
+
+.atus--progress-bar--label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+/* helpers */
+.atus--capitalize {
+  text-transform: capitalize;
+}
