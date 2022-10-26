@@ -33,7 +33,7 @@ if (file_exists($atusReleaseFile)) {
 
   // -- sample video ------------------------------------------------------------------------------
   $sampleVideos = array_values(array_filter($atusRelease['metaFiles'], function ($metaFile) {
-    return $metaFile['type'] == 'SAMPLE_VIDEO';
+    return $metaFile['type'] === 'SAMPLE_VIDEO' && $metaFile['state'] === 'PROCESSED';
   }));
 
   if (count($sampleVideos) > 0) {
@@ -43,7 +43,7 @@ if (file_exists($atusReleaseFile)) {
 
   // -- in release included screenshots -----------------------------------------------------------
   $screenImages = array_values(array_filter($atusRelease['metaFiles'], function ($metaFile) {
-    return $metaFile['type'] == 'SCREEN_IMAGE';
+    return $metaFile['type'] === 'SCREEN_IMAGE' && $metaFile['state'] === 'PROCESSED';
   }));
 
   if (count($screenImages) > 0) {
@@ -59,7 +59,7 @@ if (file_exists($atusReleaseFile)) {
 
   if ($showSelfGeneratedScreenImages) {
     $screenImagesGenerated = array_values(array_filter($atusRelease['metaFiles'], function ($metaFile) {
-      return $metaFile['type'] == 'SCREEN_IMAGE__FROM_SAMPLE';
+      return $metaFile['type'] === 'SCREEN_IMAGE__FROM_SAMPLE' && $metaFile['state'] === 'PROCESSED';
     }));
 
     if (count($screenImagesGenerated) > 0) {
@@ -72,7 +72,7 @@ if (file_exists($atusReleaseFile)) {
 
   // -- cover, proof and other included images ----------------------------------------------------
   $images = array_values(array_filter($atusRelease['metaFiles'], function ($metaFile) {
-    return in_array($metaFile['type'], ['SOURCE_IMAGE', 'IMAGE', 'PROOF_IMAGE']);
+    return in_array($metaFile['type'], ['SOURCE_IMAGE', 'IMAGE', 'PROOF_IMAGE']) && $metaFile['state'] === 'PROCESSED';
   }));
 
   $sumImages = count($images);
